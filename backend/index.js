@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 4200;
 
 // Enabling CORS as we want to communicate with the server.
 app.use(function(req, res, next) {
@@ -24,5 +24,5 @@ app.get("/*", function(request, response, next) {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`);
+  console.log(`Listening on port ${port}`);
 });
