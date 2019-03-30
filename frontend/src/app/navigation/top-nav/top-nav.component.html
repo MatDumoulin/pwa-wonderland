@@ -1,0 +1,7 @@
+<mat-toolbar color="primary" class="flex justify-between">
+    <span>PWA Wonderland</span>
+
+    <button *ngIf="sideNavRef" (click)="sideNavRef.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>

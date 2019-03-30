@@ -1,0 +1,10 @@
+<mat-nav-list class="container">
+    <mat-list-item
+        color="accent"
+        *ngFor="let menuItem of menuItems"
+        [routerLink]="[menuItem.link]"
+    >
+        <mat-icon matListIcon>{{ menuItem.icon }}</mat-icon>
+        {{ menuItem.text }}
+    </mat-list-item>
+</mat-nav-list>
