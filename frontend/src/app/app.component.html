@@ -1,13 +1,15 @@
 <div class="h-100 flex flex-column">
-    <app-top-nav [sideNavRef]="isUserOnMobile ? sidenav : null"></app-top-nav>
+    <app-top-nav
+        [sideNavRef]="isUserOnMobile ? sidenav : null"
+        [isDisplayingSidenav]="shouldDisplaySidenav()"
+    ></app-top-nav>
 
     <mat-sidenav-container class="h-100">
         <mat-sidenav
             [mode]="sidenavOptions.mode"
             [fixedInViewport]="sidenavOptions.fixedInViewport"
-            [opened]="sidenavOptions.opened"
+            [opened]="sidenavOptions.opened && shouldDisplaySidenav()"
             [disableClose]="sidenavOptions.disableClose"
-            [fixedTopGap]="sidenavOptions.fixedTopGap"
             #sidenav
         >
             <app-side-nav></app-side-nav>

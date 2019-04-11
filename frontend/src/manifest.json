@@ -1,0 +1,31 @@
+{
+    "name": "PWA Wonderland",
+    "short_name": "PWAW",
+    "description": "A playground to discover Progressive Web App capabalities",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "favicon.ico",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "favicon.ico",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "favicon.ico",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#673ab7"
+}

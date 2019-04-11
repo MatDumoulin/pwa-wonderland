@@ -1,5 +1,6 @@
 import { MediaMatcher } from "@angular/cdk/layout";
 import { ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: "app-root",
@@ -8,6 +9,7 @@ import { ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
 })
 export class AppComponent implements OnDestroy {
     private _mobileQueryListener: () => void;
+    private _routesWithoutSidenav = ["/welcome"];
     mobileQuery: MediaQueryList;
     isUserOnMobile = true;
     // Display options for the sidenav when it is on desktop;
@@ -15,21 +17,23 @@ export class AppComponent implements OnDestroy {
         fixedInViewport: false,
         disableClose: true,
         mode: "side",
-        opened: true,
-        fixedTopGap: 0
+        opened: true
     };
     // Display options for the sidenav when it is on mobile;
     readonly mobileSidenavOptions: SidenavOptions = {
         fixedInViewport: false,
         disableClose: false,
         mode: "over",
-        opened: false,
-        fixedTopGap: 0
+        opened: false
     };
 
     sidenavOptions = this.mobileSidenavOptions;
 
-    constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    constructor(
+        changeDetectorRef: ChangeDetectorRef,
+        media: MediaMatcher,
+        private router: Router
+    ) {
         // Listening to the screen size in order to display either in mobile or desktop mode.
         this.mobileQuery = media.matchMedia("(max-width: 1024px)");
         this._mobileQueryListener = () => {
@@ -48,6 +52,10 @@ export class AppComponent implements OnDestroy {
             "change",
             this._mobileQueryListener
         );
+    }
+
+    shouldDisplaySidenav() {
+        return this._routesWithoutSidenav.indexOf(this.router.url) === -1;
     }
 
     private isMobile(): boolean {
@@ -73,5 +81,4 @@ interface SidenavOptions {
     disableClose: boolean;
     mode: string;
     opened: boolean;
-    fixedTopGap: number;
 }
