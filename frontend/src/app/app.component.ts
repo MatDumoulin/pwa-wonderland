@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 })
 export class AppComponent implements OnDestroy {
     private _mobileQueryListener: () => void;
-    private _routesWithoutSidenav = ["/welcome"];
+    private _routesWithoutSidenav = ["/", "/welcome"];
     mobileQuery: MediaQueryList;
     isUserOnMobile = true;
     // Display options for the sidenav when it is on desktop;

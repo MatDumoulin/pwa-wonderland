@@ -18,6 +18,11 @@ export class SideNavComponent implements OnInit {
             text: "Service Workers",
             icon: "signal_wifi_off",
             link: "/service-worker"
+        },
+        {
+            text: "Camera",
+            icon: "camera",
+            link: "/camera"
         }
     ];
 

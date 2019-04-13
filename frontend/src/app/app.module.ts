@@ -1,7 +1,9 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ServiceWorkerModule } from "@angular/service-worker";
 
+import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CameraModule } from "./camera";
@@ -9,7 +11,7 @@ import { GeolocalisationModule } from "./geolocalisation";
 import { MaterialModule } from "./material.module";
 import { NavigationModule } from "./navigation";
 import { PushNotificationModule } from "./push-notification";
-import { ServiceWorkerModule } from "./service-worker";
+import { ServiceWorkerPageModule } from "./service-worker";
 import { WelcomeComponent } from "./welcome";
 
 @NgModule({
@@ -23,7 +25,10 @@ import { WelcomeComponent } from "./welcome";
         NavigationModule,
         MaterialModule,
         PushNotificationModule,
-        ServiceWorkerModule
+        ServiceWorkerPageModule,
+        ServiceWorkerModule.register("ngsw-worker.js", {
+            enabled: environment.production
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]

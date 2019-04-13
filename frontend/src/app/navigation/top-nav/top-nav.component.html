@@ -1,6 +1,4 @@
-<mat-toolbar color="primary" class="flex justify-between">
-    <span>PWA Wonderland</span>
-
+<mat-toolbar color="primary" class="flex">
     <button
         *ngIf="sideNavRef"
         [hidden]="isDisplayingSidenav"
@@ -9,4 +7,5 @@
     >
         <mat-icon>menu</mat-icon>
     </button>
+    <a class="as-text" href="/">PWA Wonderland</a>
 </mat-toolbar>

@@ -7,4 +7,4 @@ import { ServiceWorkerComponent } from "./service-worker.component";
     declarations: [ServiceWorkerComponent],
     imports: [CommonModule]
 })
-export class ServiceWorkerModule {}
+export class ServiceWorkerPageModule {}
